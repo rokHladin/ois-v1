@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Gravitacija {
 
 	private static final double M = 5.972e24; // masa Zemlje
@@ -5,6 +7,11 @@ public class Gravitacija {
 	private static final double r = 6.371e6; // radij Zemlje
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Vnesi nadmorsko visino v metrih: ");
+		double visina = sc.nextDouble();
+
+		izpisiGravPospesek(visina, g(visina));
 		System.out.println("OIS je zakon!");
 	}
 
@@ -15,7 +22,7 @@ public class Gravitacija {
 		return (G * M) / (Math.pow(r + nv, 2));
 	}
 
-	public static void gravPospesek(double visina, double pospesek) {
-		System.out.printf("[%.2f]m : [%.2f]m/s^2", visina, pospesek);
+	public static void izpisiGravPospesek(double visina, double pospesek) {
+		System.out.printf("%fm : %fm/s^2%n", visina, pospesek);
 	}
 }
